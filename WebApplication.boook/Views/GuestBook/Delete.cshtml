@@ -1,0 +1,27 @@
+﻿@model WebApplication.boook.Models.GuestBookEntry
+
+@{
+    ViewData["Title"] = "Удалить";
+}
+
+<h1>Удалить отзыв</h1>
+
+<div>
+    <p>Вы уверены, что хотите удалить этот отзыв?</p>
+    <dl class="row">
+        <dt class="col-sm-2">Автор:</dt>
+        <dd class="col-sm-10">@Model.Author</dd>
+        
+        <dt class="col-sm-2">Текст:</dt>
+        <dd class="col-sm-10">@Model.Text</dd>
+        
+        <dt class="col-sm-2">Дата:</dt>
+        <dd class="col-sm-10">@Model.CreatedAt.ToString("dd.MM.yyyy HH:mm")</dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Удалить" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Отмена</a>
+    </form>
+</div>
